@@ -162,7 +162,7 @@ body {
         }
 
         .active {
-          @apply ring-5 size-5 ring-light-100;
+          @apply ring-2 size-5 ring-light-100;
         }
       }
 
@@ -171,6 +171,9 @@ body {
 
         div {
           @apply size-8 rounded-full cursor-pointer bg-white text-black flex-center;
+        }
+        .active {
+          @apply ring-5 size-5 ring-light-100;
         }
       }
     }
