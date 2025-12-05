@@ -12,11 +12,11 @@ const HighlightsSection = () => {
         start: "top 40%",
         end: "top top",
         scrub: 1.5,
-        markers: true,
       },
     });
+
     timeline1.from(".masonry", {
-      opacity: 0,
+      opacity: 100,
       y: 150,
       duration: 4,
       stagger: 0.5,
