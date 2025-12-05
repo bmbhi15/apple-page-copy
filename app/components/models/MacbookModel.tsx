@@ -61,7 +61,7 @@ type GLTFResult = GLTF & {
     sfCQkHOWyrsLmor: THREE.MeshStandardMaterial;
     ZCDwChwkbBfITSW: THREE.MeshStandardMaterial;
   };
-  animations: GLTFAction[];
+  // animations: GLTFAction[];
 };
 function isMesh(object: Object3D): object is Mesh {
   return (object as Mesh).isMesh === true;
@@ -71,17 +71,31 @@ export function MacbookModel(props: JSX.IntrinsicElements["group"]) {
   const { videoTexture, color } = useMacbookStore();
   const { nodes, materials, scene } = useGLTF(
     "/models/macbook-16-transformed.glb"
-  ) as GLTFResult;
+  ) as unknown as GLTFResult;
   const texture = useVideoTexture(videoTexture);
-  useEffect(() => {
-    scene.traverse((child: Object3D) => {
-      if (isMesh(child)) {
-        if (!noChangeParts.includes(child.name)) {
-          child.material.color = new THREE.Color(color);
-        }
-      }
-    });
-  }, [color, scene]);
+  // useEffect(() => {
+  //   scene.traverse((child: Object3D) => {
+  //     if (isMesh(child)) {
+  //       if (!noChangeParts.includes(child.name)) {
+  //         // Check if material is an array or a single material
+  //         if (Array.isArray(child.material)) {
+  //           child.material.forEach((mat) => {
+  //             if ("color" in mat) {
+  //               (mat as THREE.Material & { color: THREE.Color }).color =
+  //                 new THREE.Color(color);
+  //             }
+  //           });
+  //         } else {
+  //           if ("color" in child.material) {
+  //             (
+  //               child.material as THREE.Material & { color: THREE.Color }
+  //             ).color = new THREE.Color(color);
+  //           }
+  //         }
+  //       }
+  //     }
+  //   });
+  // }, [color, scene]);
   return (
     <group {...props} dispose={null}>
       <mesh

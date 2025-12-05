@@ -14,14 +14,15 @@ const ShowcaseSection = () => {
     if (!isTablet) {
       const timeline = gsap.timeline({
         scrollTrigger: {
-          trigger: "#showcase",
-          start: "top top",
-          end: "bottom top",
-          scrub: true,
+          trigger: ".media",
+          start: "20% 20%",
+          end: "center 30%",
+          scrub: 2,
           pin: true,
+          markers: true,
         },
       });
-      timeline.to(".mask img", { transform: "scale(1.5)" }).to(".content", {
+      timeline.to(".mask img", { transform: "scale(1)" }).to(".content", {
         opacity: 1,
         y: 0,
         ease: "power1.in",

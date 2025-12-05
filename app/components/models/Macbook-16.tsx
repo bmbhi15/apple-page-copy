@@ -14,7 +14,7 @@ import { useGLTF, useTexture } from "@react-three/drei";
 import { GLTF } from "three-stdlib";
 import { JSX } from "react";
 import { useEffect } from "react";
-import { Object3D, Mesh } from "three";
+import { Object3D, Mesh, Material } from "three";
 import useMacbookStore from "@/app/store";
 import { noChangeParts } from "@/app/constants";
 
@@ -61,7 +61,7 @@ type GLTFResult = GLTF & {
     sfCQkHOWyrsLmor: THREE.MeshStandardMaterial;
     ZCDwChwkbBfITSW: THREE.MeshStandardMaterial;
   };
-  animations: GLTFAction[];
+  // animations: unknown[]; // Fixed: replaced 'GLTFAction[]' with 'any[]' to avoid type error
 };
 function isMesh(object: Object3D): object is Mesh {
   return (object as Mesh).isMesh === true;
@@ -71,13 +71,23 @@ export function MacbookModel16(props: JSX.IntrinsicElements["group"]) {
   const { color } = useMacbookStore();
   const { nodes, materials, scene } = useGLTF(
     "/models/macbook-16-transformed.glb"
-  ) as GLTFResult;
+  ) as unknown as GLTFResult;
   const texture = useTexture("/screen.png");
   useEffect(() => {
     scene.traverse((child: Object3D) => {
       if (isMesh(child)) {
         if (!noChangeParts.includes(child.name)) {
-          child.material.color = new THREE.Color(color);
+          if (Array.isArray(child.material)) {
+            child.material.forEach((mat) => {
+              if ("color" in mat) {
+                (mat as THREE.Material & { color: THREE.Color }).color =
+                  new THREE.Color(color);
+              }
+            });
+          } else if ("color" in child.material) {
+            (child.material as THREE.Material & { color: THREE.Color }).color =
+              new THREE.Color(color);
+          }
         }
       }
     });
