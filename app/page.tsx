@@ -1,5 +1,6 @@
 import FeaturesSection from "./components/FeaturesSection";
 import Hero from "./components/Hero";
+import HighlightsSection from "./components/HighlightsSection";
 import NavBar from "./components/NavBar";
 import PerformanceSection from "./components/PerformanceSection";
 import ProductViewer from "./components/ProductViewer";
@@ -13,6 +14,7 @@ export default function Home() {
       <ShowcaseSection />
       <PerformanceSection />
       <FeaturesSection />
+      <HighlightsSection />
     </div>
   );
 }
