@@ -78,7 +78,18 @@ export function MacBookModel14(props: JSX.IntrinsicElements["group"]) {
     scene.traverse((child: Object3D) => {
       if (isMesh(child)) {
         if (!noChangeParts.includes(child.name)) {
-          child.material.color = new THREE.Color(color);
+          // Handle both single material and array of materials
+          if (Array.isArray(child.material)) {
+            child.material.forEach((m) => {
+              if ("color" in m) {
+                m.color = new THREE.Color(color);
+              }
+            });
+          } else {
+            if ("color" in child.material) {
+              child.material.color = new THREE.Color(color);
+            }
+          }
         }
       }
     });
