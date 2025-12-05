@@ -70,7 +70,7 @@ export function MacBookModel14(props: JSX.IntrinsicElements["group"]) {
   const texture = useTexture("/screen.png");
   const { nodes, materials, scene } = useGLTF(
     "/models/macbook-14-transformed.glb"
-  ) as GLTFResult;
+  ) as unknown as GLTFResult;
 
   const { color } = useMacbookStore();
 

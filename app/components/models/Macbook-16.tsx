@@ -71,7 +71,7 @@ export function MacbookModel16(props: JSX.IntrinsicElements["group"]) {
   const { color } = useMacbookStore();
   const { nodes, materials, scene } = useGLTF(
     "/models/macbook-16-transformed.glb"
-  ) as GLTFResult;
+  ) as unknown as GLTFResult;
   const texture = useTexture("/screen.png");
   useEffect(() => {
     scene.traverse((child: Object3D) => {

@@ -27,7 +27,7 @@ const PerformanceSection = () => {
             trigger: ".content p",
             start: "top bottom",
             end: "top center",
-            scrub: true,
+            scrub: 1.5,
             invalidateOnRefresh: true,
           },
         }
@@ -37,9 +37,9 @@ const PerformanceSection = () => {
         defaults: { duration: 3, ease: "power1.out", overwrite: "auto" },
         scrollTrigger: {
           trigger: el,
-          start: "top center",
-          end: "top top",
-          scrub: true,
+          start: "top 20%",
+          end: "15% top",
+          scrub: 2,
           invalidateOnRefresh: true,
         },
       });
@@ -64,7 +64,7 @@ const PerformanceSection = () => {
 
   return (
     <section id="performance" ref={sectionRef}>
-      <h2>Next-lever graphics performance. Game on.</h2>
+      <h2>Next-level graphics performance. Game on.</h2>
       <div className="wrapper">
         {performanceImages.map((item) => {
           return (

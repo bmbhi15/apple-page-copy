@@ -71,7 +71,7 @@ export function MacbookModel(props: JSX.IntrinsicElements["group"]) {
   const { videoTexture, color } = useMacbookStore();
   const { nodes, materials, scene } = useGLTF(
     "/models/macbook-16-transformed.glb"
-  ) as GLTFResult;
+  ) as unknown as GLTFResult;
   const texture = useVideoTexture(videoTexture);
   useEffect(() => {
     scene.traverse((child: Object3D) => {
