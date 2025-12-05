@@ -19,7 +19,6 @@ const ShowcaseSection = () => {
           end: "center 30%",
           scrub: 2,
           pin: true,
-          markers: true,
         },
       });
       timeline.to(".mask img", { transform: "scale(1)" }).to(".content", {
