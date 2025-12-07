@@ -9,6 +9,10 @@ import useMacbookStore from "../store";
 import ModelSwitcher from "./three/ModelSwitcher";
 import { useMediaQuery } from "react-responsive";
 
+enum MacbookModelColorCode {
+  SPACE_BLACK = "#2e2c2e",
+  JET_GRAY = "#adb5bd",
+}
 enum MacbookModelColorsName {
   SPACE_BLACK = "Space Black",
   JET_GRAY = "Jet Gray",
@@ -60,10 +64,10 @@ const ProductViewer = () => {
               onClick={() => {
                 setMacbookState({
                   ...macbookState,
-                  color: MacbookModelColorOptions.JET_GRAY,
-                  colorName: MacbookModelColorsName.JET_GRAY,
+                  color: MacbookModelColorOptions.SPACE_BLACK,
+                  colorName: MacbookModelColorsName.SPACE_BLACK,
                 });
-                setColor("#adb5bd");
+                setColor(MacbookModelColorCode.SPACE_BLACK);
               }}
             />
             <div
@@ -77,10 +81,10 @@ const ProductViewer = () => {
               onClick={() => {
                 setMacbookState({
                   ...macbookState,
-                  color: MacbookModelColorOptions.SPACE_BLACK,
-                  colorName: MacbookModelColorsName.SPACE_BLACK,
+                  color: MacbookModelColorOptions.JET_GRAY,
+                  colorName: MacbookModelColorsName.JET_GRAY,
                 });
-                setColor("#2e2c2e");
+                setColor(MacbookModelColorCode.JET_GRAY);
               }}
             />
           </div>
