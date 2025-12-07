@@ -19,10 +19,10 @@ const NavBar = () => {
         </ul>
         <div className="space-x-4">
           <button>
-            <Image src="/Search.svg" alt="search icon" width={24} height={24} />
+            <Image src="/search.svg" alt="search icon" width={24} height={24} />
           </button>
           <button>
-            <Image src="/Cart.svg" alt="cart icon" width={24} height={24} />
+            <Image src="/cart.svg" alt="cart icon" width={24} height={24} />
           </button>
         </div>
       </nav>

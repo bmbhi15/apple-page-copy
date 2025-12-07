@@ -16,7 +16,7 @@ const HighlightsSection = () => {
     });
 
     timeline1.from(".masonry", {
-      opacity: 100,
+      opacity: 0,
       y: 150,
       duration: 4,
       stagger: 0.5,
