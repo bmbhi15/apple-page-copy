@@ -8,7 +8,7 @@ import { useGSAP } from "@gsap/react";
 gsap.registerPlugin(ScrollTrigger);
 
 const ShowcaseSection = () => {
-  const isTablet = useMediaQuery({ query: "max-width: 1024px" });
+  const isTablet = useMediaQuery({ query: "(max-width: 1024px)" });
 
   useGSAP(() => {
     if (!isTablet) {
@@ -17,16 +17,25 @@ const ShowcaseSection = () => {
           trigger: ".media",
           start: "20% 20%",
           end: "center 30%",
-          scrub: 2,
+          scrub: 1,
           pin: true,
         },
       });
-      timeline.to(".mask img", { transform: "scale(1)" }).to(".content", {
-        opacity: 1,
-        y: 0,
-        ease: "power1.in",
-      });
+      timeline.to(".mask img", { transform: "scale(1)" });
     }
+    const timeline1 = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".media",
+        start: "center 40%",
+        end: "center 30%",
+        scrub: 1,
+      },
+    });
+    timeline1.to(".wrapper", {
+      opacity: 1,
+      y: 0,
+      ease: "power1.in",
+    });
   }, [isTablet]);
 
   return (

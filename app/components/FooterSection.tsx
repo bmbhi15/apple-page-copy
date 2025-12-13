@@ -12,7 +12,9 @@ const FooterSection = () => {
       </div>
       <hr />
       <div className="info">
-        <p>Copyright 2024 Apple Inc. All rights reserved.</p>
+        <p className="w-40 md:w-fit">
+          Copyright 2024 Apple Inc. All rights reserved.
+        </p>
         <div className="links">
           <ul>
             {footerLinks.map((link) => (

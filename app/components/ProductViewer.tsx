@@ -3,7 +3,7 @@ import { Box, OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { MacBookModel14 } from "./models/Macbook-14";
 import StudioLights from "./three/StudioLights";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import clsx from "clsx";
 import useMacbookStore from "../store";
 import ModelSwitcher from "./three/ModelSwitcher";

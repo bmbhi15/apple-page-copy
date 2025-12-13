@@ -6,6 +6,11 @@ import gsap from "gsap";
 import { Group, Object3D, Mesh, Material } from "three";
 import { useGSAP } from "@gsap/react";
 
+export enum MacbookModelScale {
+  MODEL_14 = 0.06,
+  MODEL_16 = 0.08,
+}
+
 const ANIMATION_DURATION = 2;
 const POSITION_OFFSET = 5;
 function isMesh(object: Object3D): object is Mesh {
@@ -46,7 +51,7 @@ const ModelSwitcher = ({ scale, isMobile }: ModelSwitcherProps) => {
   const controlsConfig = {};
 
   useGSAP(() => {
-    if (scale === 0.08) {
+    if (scale === MacbookModelScale.MODEL_16) {
       if (macbookModel14Ref.current && macbookModel16Ref.current) {
         moveGroup(macbookModel14Ref.current, -POSITION_OFFSET);
         moveGroup(macbookModel16Ref.current, 0);
@@ -68,12 +73,18 @@ const ModelSwitcher = ({ scale, isMobile }: ModelSwitcherProps) => {
     <>
       <PresentationControls {...controlsConfig}>
         <group>
-          <MacBookModel14 ref={macbookModel14Ref} scale={0.06} />
+          <MacBookModel14
+            ref={macbookModel14Ref}
+            scale={isMobile ? 0.04 : 0.06}
+          />
         </group>
       </PresentationControls>
       <PresentationControls {...controlsConfig}>
         <group>
-          <MacbookModel16 ref={macbookModel16Ref} scale={0.06} />
+          <MacbookModel16
+            ref={macbookModel16Ref}
+            scale={isMobile ? 0.04 : 0.06}
+          />
         </group>
       </PresentationControls>
     </>

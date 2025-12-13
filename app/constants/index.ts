@@ -45,36 +45,52 @@ const performanceImgPositions = [
     id: "p1",
     left: 5,
     bottom: 65,
+    bottom_xs: 58,
+    right_xs: 20,
   },
   {
     id: "p2",
     right: 10,
     bottom: 60,
+    bottom_xs: 54,
+    right_xs: 20,
   },
   {
     id: "p3",
     right: -5,
     bottom: 45,
+    bottom_xs: 40,
+    right_xs: 15,
   },
   {
     id: "p4",
     right: -10,
     bottom: 0,
+    bottom_xs: 12,
+    right_xs: 10,
   },
   {
     id: "p5",
     left: 20,
     bottom: 50,
+    bottom_xs: 35,
+    right_xs: 27,
   },
   {
     id: "p6",
     left: 2,
     bottom: 30,
+    bottom_xs: 16,
+    right_xs: 15,
   },
   {
     id: "p7",
     left: -5,
     bottom: 0,
+    bottom_xs: 6,
+    right_xs: 10,
+  },
+];
   },
 ];
 
