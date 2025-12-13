@@ -8,7 +8,7 @@ import { useRef } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 const PerformanceSection = () => {
-  const isTablet = useMediaQuery({ query: "max-width: 1024px" });
+  const isTablet = useMediaQuery({ query: "(max-width: 1024px)" });
   const sectionRef = useRef(null);
   useGSAP(
     () => {
@@ -52,8 +52,8 @@ const PerformanceSection = () => {
           tl.to(selector, pos, 0);
         } else if (item.right) {
           const pos = {
-            right: `${item.right}%`,
-            bottom: `${item.bottom}%`,
+            right: `${isTablet ? item.right_xs : item.right}%`,
+            bottom: `${isTablet ? item.bottom_xs : item.bottom}%`,
           };
           tl.to(selector, pos, 0);
         }

@@ -23,7 +23,7 @@ gsap.registerPlugin(ScrollTrigger);
 const FeaturesSection = () => {
   const { setVideoTexture } = useMacbookStore();
   const controlsConfig = {};
-  const isMobile = useMediaQuery({ query: "max-width: 1024px" });
+  const isMobile = useMediaQuery({ query: "(max-width: 1024px)" });
   const sectionRef = useRef(null);
   const groupRef = useRef<Group | null>(null);
   const macbookModelRef = useRef(null);
@@ -121,7 +121,7 @@ const FeaturesSection = () => {
                 </Html>
               }
             >
-              <MacbookModel scale={0.06} />
+              <MacbookModel scale={isMobile ? 0.04 : 0.06} />
             </Suspense>
           </group>
 
