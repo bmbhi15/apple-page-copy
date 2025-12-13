@@ -91,8 +91,6 @@ const performanceImgPositions = [
     right_xs: 10,
   },
 ];
-  },
-];
 
 const features = [
   {
